@@ -18,6 +18,9 @@ def test_play():
         31: {
             "uri": "spotify:track:03aXtrt0TBNYqz5xe8qunM",
             "type": "TRACK"
+        },
+        2: {
+            "type": "EXIT"
         }
     }
 

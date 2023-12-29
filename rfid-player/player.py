@@ -10,10 +10,6 @@ def init_player(mapping, get_id, play_song, play_album):
         logging.info("Waiting for id")
         id = asyncio.run(get_id())
 
-        if id == 2:
-            logging.info("Stopping player")
-            break
-
         if current_id == id:
             logging.info(f"Continuing current item {id}",)
             continue
@@ -29,4 +25,7 @@ def init_player(mapping, get_id, play_song, play_album):
             play_song(item.get("uri"))
         elif item.get("type") == "ALBUM":
             play_album(item.get("uri"))
+        elif item.get("type") == "EXIT":
+            logging.info("Stopping player")
+            break
         sleep(1)
